@@ -11,7 +11,7 @@ class Solution:
             return
         
         q = deque([])
-        averages = []
+        avg = []
 
         q.append(root)
         nodes_count_per_level = 0
@@ -22,7 +22,7 @@ class Solution:
         while len(q) > 0:
             node = q.popleft()
             if node is None:
-                averages.append(sum_per_level / nodes_count_per_level)
+                avg.append(sum_per_level / nodes_count_per_level)
                 sum_per_level = 0
                 nodes_count_per_level = 0
                 q.append(None)
@@ -40,6 +40,6 @@ class Solution:
 
             if node.right is not None:
                 q.append(node.right)
-        return averages
+        return avg
 
 
