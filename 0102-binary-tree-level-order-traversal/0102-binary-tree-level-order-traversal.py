@@ -14,28 +14,48 @@ class Solution:
         if root is None:
             return nodes
         
-        queue.append(None)
         temp = []
         
         while len(queue) > 0:
-            node = queue.popleft()
-            if node is None:
-                nodes.append(temp)
-                queue.append(None)
-                temp = []
-                
-                if queue[0] is None:
-                    break
-                else:
-                    continue
+            queueLen = len(queue)
             
-            temp.append(node.val)
-            
-            if node.left is not None:
-                queue.append(node.left)
+            for _ in range(queueLen):
+                node = queue.popleft()
                 
-            if node.right is not None:
-                queue.append(node.right)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+                
+                temp.append(node.val)
+            nodes.append(temp)
+            temp = []
+            
+        return nodes
+                
+        
+#         queue.append(None)
+#         temp = []
+        
+#         while len(queue) > 0:
+#             node = queue.popleft()
+#             if node is None:
+#                 nodes.append(temp)
+#                 queue.append(None)
+#                 temp = []
+                
+#                 if queue[0] is None:
+#                     break
+#                 else:
+#                     continue
+            
+#             temp.append(node.val)
+            
+#             if node.left is not None:
+#                 queue.append(node.left)
+                
+#             if node.right is not None:
+#                 queue.append(node.right)
                 
         return nodes
                 
