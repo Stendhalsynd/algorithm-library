@@ -14,9 +14,8 @@ class Solution:
         if root is None:
             return nodes
         
-        temp = []
-        
-        while len(queue) > 0:
+        while queue:
+            temp = []
             queueLen = len(queue)
             
             for _ in range(queueLen):
@@ -29,7 +28,6 @@ class Solution:
                 
                 temp.append(node.val)
             nodes.append(temp)
-            temp = []
             
         return nodes
                 
