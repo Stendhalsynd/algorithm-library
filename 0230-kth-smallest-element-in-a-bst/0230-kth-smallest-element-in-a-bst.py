@@ -14,5 +14,5 @@ class Solution:
             stack.append(root.val)
             inorder(root.right)
         inorder(root)
-        stack.sort()
+        # stack.sort()
         return stack[k - 1]
