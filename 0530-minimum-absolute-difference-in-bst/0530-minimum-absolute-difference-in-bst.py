@@ -20,13 +20,9 @@ class Solution:
             else:
                 if root.val - beforeVal < minDiff:
                     minDiff = root.val - beforeVal
-                print('current minDiff : ', minDiff)
-                print('currentBeforeVal : ', beforeVal)
                 beforeVal = root.val
-            print('current val : ',root.val)
             inorder(root.right)
         inorder(root)
-        print('minDiff : ', minDiff)
         return minDiff
                 
                 
