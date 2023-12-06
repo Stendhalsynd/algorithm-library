@@ -1,19 +1,20 @@
 from itertools import permutations
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        cases = list(permutations(nums, len(nums)))
-        return [list(permutation) for permutation in cases]
+        # cases = list(permutations(nums, len(nums)))
+        # return [list(permutation) for permutation in cases]
         
-        
-#         ans = []
-#         combination = []
-#         def back(combination, nums):
-#             if len(combination) == len(nums):
-#                 ans.append(combination)
-#             else:
-#                 for idx, num in enumerate(nums):
-                    
-#                     back(combination + [num], nums[idx:])
-#         back(combination, nums)
-#         return ans
+        ans = []
+        permutation = []
+        def back(permutation):
+            if len(permutation) == len(nums):
+                ans.append(permutation)
+            else:
+                for num in nums:
+                    if not permutation:
+                        back([num])
+                    elif permutation and num not in permutation:
+                        back(permutation + [num])
+        back(permutation)
+        return ans
                 
