@@ -2,8 +2,8 @@
 # from collections import Counter
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return nums[0]
+        # if len(nums) == 1:
+        #     return nums[0]
         
         # counter = Counter(nums)
         
@@ -13,5 +13,5 @@ class Solution:
 
         a = 0
         for i in nums:
-            a ^= i
+            a ^= i # 0 XOR 4 XOR 1 XOR 2 XOR 1 XOR 2 = 4
         return a
